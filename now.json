@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "PH_BEARER": "@ph-bearer"
+    }
+  }
+}
