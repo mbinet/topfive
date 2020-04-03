@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Posts from "./posts/Posts";
+import Posts from "../components/posts/Posts";
 
 const Home = () => (
   <div className="container">
