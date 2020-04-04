@@ -1,12 +1,12 @@
-const PostItem = props => (
+const PostItem = ({ image_url, number, link, title, subtitle }) => (
   <div className="container">
-    <img src={props.image_url} className="thumbnail" />
-    <div className="number">{props.number}</div>
+    <img src={image_url} className="thumbnail" />
+    <div className="number">{number}</div>
     <div>
       <div className="title">
-        <a href={props.link}>{props.title}</a>
+        <a href={link}>{title}</a>
       </div>
-      <i>{props.subtitle}</i>
+      <i>{subtitle}</i>
     </div>
 
     <style jsx>{`
