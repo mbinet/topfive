@@ -18,7 +18,6 @@ class Posts extends React.Component {
   componentDidMount() {
     getPhPosts().then(
       response => {
-        console.log(response);
         this.setState({
           isPhLoaded: true,
           phPosts: response
