@@ -7,18 +7,8 @@ export async function getPhPosts() {
     }
   };
 
-  return fetch("https://api.producthunt.com/v1/posts", params)
-    .then(res => res.json())
-    .then(
-      result => {
-        return parsePhPosts(result.posts);
-      },
-      error => {
-        return {
-          error
-        };
-      }
-    );
+  let res = await getJson("https://api.producthunt.com/v1/posts", params);
+  return parsePhPosts(res.posts);
 }
 
 let parsePhPosts = posts =>
@@ -30,3 +20,7 @@ let parsePhPosts = posts =>
     image_url: post.thumbnail.image_url,
     link: post.discussion_url
   }));
+
+async function getJson(url, params) {
+  return await (await fetch(url, params)).json();
+}
