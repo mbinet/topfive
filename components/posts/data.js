@@ -1,7 +1,7 @@
 const bearer = process.env.PH_BEARER;
 
 export async function getPhPosts() {
-  var params = {
+  let params = {
     headers: {
       Authorization: "Bearer " + bearer
     }
@@ -21,7 +21,7 @@ export async function getPhPosts() {
     );
 }
 
-var parsePhPosts = posts => {
+let parsePhPosts = posts => {
   return posts.slice(0, 5).map(post => ({
     id: post.id,
     title: post.name,
