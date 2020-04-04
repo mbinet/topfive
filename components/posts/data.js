@@ -1,7 +1,7 @@
 const bearer = process.env.PH_BEARER;
 
 export async function getPhPosts() {
-  let params = {
+  const params = {
     headers: {
       Authorization: "Bearer " + bearer
     }
