@@ -21,8 +21,8 @@ export async function getPhPosts() {
     );
 }
 
-let parsePhPosts = posts => {
-  return posts.slice(0, 5).map(post => ({
+let parsePhPosts = posts =>
+  posts.slice(0, 5).map(post => ({
     id: post.id,
     title: post.name,
     subtitle: post.tagline,
@@ -30,4 +30,3 @@ let parsePhPosts = posts => {
     image_url: post.thumbnail.image_url,
     link: post.discussion_url
   }));
-};
