@@ -1,14 +1,14 @@
 import PostItem from "./PostItem";
 
-const PostBlock = props => {
-  if (props.error) {
-    return <div>Erreur : {props.error.message}</div>;
-  } else if (!props.isLoaded) {
+const PostBlock = ({ error, isLoaded, posts }) => {
+  if (error) {
+    return <div>Erreur : {error.message}</div>;
+  } else if (!isLoaded) {
     return <div>Chargement… jrigole</div>;
   } else {
     return (
       <ul>
-        {props.posts.map(post => (
+        {posts.map(post => (
           <PostItem
             key={post.id}
             title={post.title}
