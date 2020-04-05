@@ -1,5 +1,5 @@
 import PostBlock from "./PostBlock";
-import { getPhPosts } from "./data";
+import getPhPosts from "./data";
 
 class Posts extends React.Component {
   constructor(props) {
@@ -9,24 +9,24 @@ class Posts extends React.Component {
       isPhLoaded: false,
       phPosts: null,
       // for future TechCrunch support
-      tcError: null,
-      isTcLoaded: false,
-      tcPosts: null
+      // tcError: null,
+      // isTcLoaded: false,
+      // tcPosts: null,
     };
   }
 
   componentDidMount() {
     getPhPosts().then(
-      response => {
+      (response) => {
         this.setState({
           isPhLoaded: true,
-          phPosts: response
+          phPosts: response,
         });
       },
-      error => {
+      (error) => {
         this.setState({
           isPhLoaded: true,
-          phError: error
+          phError: error,
         });
       }
     );

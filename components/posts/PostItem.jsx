@@ -1,6 +1,8 @@
-const PostItem = ({ image_url, number, link, title, subtitle }) => (
+import PropTypes from "prop-types";
+
+const PostItem = ({ imageUrl, number, link, title, subtitle }) => (
   <div className="container">
-    <img src={image_url} className="thumbnail" />
+    <img src={imageUrl} className="thumbnail" alt="thumbnail" />
     <div className="number">{number}</div>
     <div>
       <div className="title">
@@ -32,5 +34,13 @@ const PostItem = ({ image_url, number, link, title, subtitle }) => (
     `}</style>
   </div>
 );
+
+PostItem.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  link: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
 
 export default PostItem;
