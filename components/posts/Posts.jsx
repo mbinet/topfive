@@ -24,7 +24,7 @@ function Posts() {
         });
       }
     );
-  });
+  }, []);
 
   // for future TechCrunch support
   // const [tcState, setTcState] = useState({
