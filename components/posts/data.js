@@ -10,12 +10,12 @@ const parsePhPosts = (posts) =>
     link: post.discussion_url,
   }));
 
-async function getJson(url, params) {
+const getJson = async (url, params) => {
   const res = await (await fetch(url, params)).json();
   return res;
-}
+};
 
-async function getPhPosts() {
+const getPhPosts = async () => {
   const params = {
     headers: {
       Authorization: `Bearer ${bearer}`,
@@ -24,6 +24,6 @@ async function getPhPosts() {
 
   const res = await getJson("https://api.producthunt.com/v1/posts", params);
   return parsePhPosts(res.posts);
-}
+};
 
 export default getPhPosts;
