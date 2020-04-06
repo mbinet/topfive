@@ -1,45 +1,47 @@
+import { useState, useEffect } from "react";
 import PostBlock from "./PostBlock";
 import getPhPosts from "./data";
 
-class Posts extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      phError: null,
-      isPhLoaded: false,
-      phPosts: null,
-      // for future TechCrunch support
-      // tcError: null,
-      // isTcLoaded: false,
-      // tcPosts: null,
-    };
-  }
+function Posts() {
+  const [phState, setPhState] = useState({
+    error: null,
+    isLoaded: false,
+    posts: null,
+  });
 
-  componentDidMount() {
+  useEffect(() => {
     getPhPosts().then(
       (response) => {
-        this.setState({
-          isPhLoaded: true,
-          phPosts: response,
+        setPhState({
+          isLoaded: true,
+          posts: response,
         });
       },
       (error) => {
-        this.setState({
-          isPhLoaded: true,
-          phError: error,
+        setPhState({
+          isLoaded: true,
+          error,
         });
       }
     );
-  }
+  });
 
-  render() {
-    const { phError, isPhLoaded, phPosts } = this.state;
-    return (
-      <div>
-        <PostBlock posts={phPosts} error={phError} isLoaded={isPhLoaded} />
-      </div>
-    );
-  }
+  // for future TechCrunch support
+  // const [tcState, setTcState] = useState({
+  //   error: null,
+  //   isLoaded: false,
+  //   posts: null,
+  // });
+
+  return (
+    <div>
+      <PostBlock
+        posts={phState.posts}
+        error={phState.error}
+        isLoaded={phState.isLoaded}
+      />
+    </div>
+  );
 }
 
 export default Posts;
