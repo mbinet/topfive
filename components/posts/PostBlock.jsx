@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Paper from "@material-ui/core/Paper";
 import PostItem from "./PostItem";
 
 const PostBlock = ({ error, isLoaded, posts }) => {
@@ -9,7 +10,7 @@ const PostBlock = ({ error, isLoaded, posts }) => {
     return <div>Chargement… jrigole</div>;
   }
   return (
-    <ul>
+    <Paper elevation={6}>
       {posts.map((post) => (
         <PostItem
           key={post.id}
@@ -20,7 +21,7 @@ const PostBlock = ({ error, isLoaded, posts }) => {
           link={post.link}
         />
       ))}
-    </ul>
+    </Paper>
   );
 };
 
