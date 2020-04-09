@@ -34,13 +34,42 @@ function Posts() {
   // });
 
   return (
-    <div>
-      <PostBlock
-        posts={phState.posts}
-        error={phState.error}
-        isLoaded={phState.isLoaded}
-      />
-    </div>
+    <>
+      <div className="blocks">
+        <PostBlock
+          posts={phState.posts}
+          error={phState.error}
+          isLoaded={phState.isLoaded}
+        />
+        <PostBlock
+          posts={phState.posts}
+          error={phState.error}
+          isLoaded={phState.isLoaded}
+        />
+        <PostBlock
+          posts={phState.posts}
+          error={phState.error}
+          isLoaded={phState.isLoaded}
+        />
+        <PostBlock
+          posts={phState.posts}
+          error={phState.error}
+          isLoaded={phState.isLoaded}
+        />
+        <PostBlock
+          posts={phState.posts}
+          error={phState.error}
+          isLoaded={phState.isLoaded}
+        />
+      </div>
+      <style jsx>{`
+        .blocks {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-gap: 32px;
+        }
+      `}</style>
+    </>
   );
 }
 

@@ -9,26 +9,21 @@ const Home = () => (
     </Head>
 
     <main>
-      <h1>Top 5 today</h1>
+      <h1 className="title">Top 5 today</h1>
       <Posts />
     </main>
 
     <style jsx>{`
       .container {
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
       }
 
       main {
-        padding: 50px 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        padding: 40px;
+      }
+
+      .title {
+        text-align: center;
       }
 
       .thumbnail {

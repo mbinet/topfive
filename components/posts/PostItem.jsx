@@ -1,39 +1,43 @@
 import PropTypes from "prop-types";
+import { Avatar, Badge, Divider, Link, Typography } from "@material-ui/core";
 
-const PostItem = ({ imageUrl, number, link, title, subtitle }) => (
-  <div className="container">
-    <img src={imageUrl} className="thumbnail" alt="thumbnail" />
-    <div className="number">{number}</div>
-    <div>
-      <div className="title">
-        <a href={link}>{title}</a>
+const PostItem = ({ imageUrl, number, link, title, subtitle }) => {
+  const preventDefault = (event) => event.preventDefault();
+
+  return (
+    <>
+      <div className="container">
+        <Badge
+          badgeContent={number}
+          color={number > 400 ? "error" : "primary"}
+          max={9999}
+        >
+          <Avatar src={imageUrl} className="" alt="thumbnail" />
+        </Badge>
+        <div>
+          <Link href={link} onClick={preventDefault}>
+            {title}
+          </Link>
+          <Typography variant="body2">{subtitle}</Typography>
+        </div>
+        <style jsx>{`
+          .container {
+            display: flex;
+            padding: 12px;
+          }
+          .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 24px;
+          }
+        `}</style>
       </div>
-      <i>{subtitle}</i>
-    </div>
-
-    <style jsx>{`
-      .container {
-        display: flex;
-        margin-bottom: 24px;
-      }
-      .thumbnail {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-right: 24px;
-      }
-      .number {
-        display: flex;
-        align-self: center;
-        margin-right: 24px;
-      }
-      .title {
-        margin-bottom: 12px;
-      }
-    `}</style>
-  </div>
-);
+      <Divider />
+    </>
+  );
+};
 
 PostItem.propTypes = {
   imageUrl: PropTypes.string.isRequired,
