@@ -22,6 +22,8 @@ const getPhPosts = async () => {
     },
   };
 
+  // For faster loading time in dev mode, use this data
+  // const res = await getJson("./fakePhData.json", params);
   const res = await getJson("https://api.producthunt.com/v1/posts", params);
   return parsePhPosts(res.posts);
 };
