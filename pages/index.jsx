@@ -1,51 +1,45 @@
 import Head from "next/head";
+import styled, { createGlobalStyle } from "styled-components";
 import Posts from "../components/posts/Posts";
 
+const GlobalStyle = createGlobalStyle`
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+`;
+
+const Container = styled.div`
+  min-height: 100vh;
+`;
+
+const Main = styled.main`
+  padding: 40px;
+`;
+
+const H1 = styled.h1`
+  text-align: center;
+`;
+
 const Home = () => (
-  <div className="container">
+  <Container>
+    <GlobalStyle />
     <Head>
       <title>Top5</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-
-    <main>
-      <h1 className="title">Top 5 today</h1>
+    <Main>
+      <H1 className="title">Top 5 today</H1>
       <Posts />
-    </main>
-
-    <style jsx>{`
-      .container {
-        min-height: 100vh;
-      }
-
-      main {
-        padding: 40px;
-      }
-
-      .title {
-        text-align: center;
-      }
-
-      .thumbnail {
-        width: 80px;
-        height: 80px;
-      }
-    `}</style>
-
-    <style jsx global>{`
-      html,
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-    `}</style>
-  </div>
+    </Main>
+  </Container>
 );
 
 export default Home;
