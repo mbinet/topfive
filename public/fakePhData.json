@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Photopea",
       "tagline": "An online, free, photoshop alternative that anyone can use.",
-      "votes_count": "438",
+      "votes_count": 438,
       "thumbnail": { "image_url": "http://placekitten.com/40/40" },
       "discussion_url": "http://placekitten.com/40/40"
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "name": "Photopea",
       "tagline": "An online, free, photoshop alternative that anyone can use.",
-      "votes_count": "438",
+      "votes_count": 438,
       "thumbnail": { "image_url": "http://placekitten.com/40/40" },
       "discussion_url": "http://placekitten.com/40/40"
     },
@@ -20,7 +20,7 @@
       "id": 3,
       "name": "Photopea",
       "tagline": "An online, free, photoshop alternative that anyone can use.",
-      "votes_count": "438",
+      "votes_count": 438,
       "thumbnail": { "image_url": "http://placekitten.com/40/40" },
       "discussion_url": "http://placekitten.com/40/40"
     },
@@ -28,7 +28,7 @@
       "id": 4,
       "name": "Photopea",
       "tagline": "An online, free, photoshop alternative that anyone can use.",
-      "votes_count": "438",
+      "votes_count": 438,
       "thumbnail": { "image_url": "http://placekitten.com/40/40" },
       "discussion_url": "http://placekitten.com/40/40"
     },
@@ -36,7 +36,7 @@
       "id": 5,
       "name": "Photopea",
       "tagline": "An online, free, photoshop alternative that anyone can use.",
-      "votes_count": "438",
+      "votes_count": 438,
       "thumbnail": { "image_url": "http://placekitten.com/40/40" },
       "discussion_url": "http://placekitten.com/40/40"
     }
