@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import PostBlock from "./PostBlock";
 import getPhPosts from "../../services/productHuntData";
+import getHnPosts from "../../services/hackerNewsData";
 
 const Container = styled.div`
   display: grid;
@@ -11,12 +12,12 @@ const Container = styled.div`
 `;
 
 function Posts() {
+  // ProductHunt
   const [phState, setPhState] = useState({
     error: null,
     isLoaded: false,
     posts: null,
   });
-
   useEffect(() => {
     getPhPosts().then(
       (response) => {
@@ -27,6 +28,29 @@ function Posts() {
       },
       (error) => {
         setPhState({
+          isLoaded: true,
+          error,
+        });
+      }
+    );
+  }, []);
+
+  // Hacker news
+  const [hnState, setHnState] = useState({
+    error: null,
+    isLoaded: false,
+    posts: null,
+  });
+  useEffect(() => {
+    getHnPosts().then(
+      (response) => {
+        setHnState({
+          isLoaded: true,
+          posts: response,
+        });
+      },
+      (error) => {
+        setHnState({
           isLoaded: true,
           error,
         });
@@ -47,6 +71,11 @@ function Posts() {
         posts={phState.posts}
         error={phState.error}
         isLoaded={phState.isLoaded}
+      />
+      <PostBlock
+        posts={hnState.posts}
+        error={hnState.error}
+        isLoaded={hnState.isLoaded}
       />
     </Container>
   );
