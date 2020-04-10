@@ -36,7 +36,7 @@ const Home = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Main>
-      <H1 className="title">Top 5 today</H1>
+      <H1>Top 5 today</H1>
       <Posts />
     </Main>
   </Container>
