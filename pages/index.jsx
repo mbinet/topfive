@@ -1,6 +1,31 @@
 import Head from "next/head";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import {
+  createMuiTheme,
+  ThemeProvider as MuiThemeProvider,
+} from "@material-ui/core/styles";
 import Posts from "../components/posts/Posts";
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Roboto",
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+      "sans-serif",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+    ].join(","),
+  },
+});
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -8,7 +33,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif,
+      Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   }
 
   * {
@@ -29,17 +55,21 @@ const H1 = styled.h1`
 `;
 
 const Home = () => (
-  <Container>
-    <GlobalStyle />
-    <Head>
-      <title>Top5</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-    <Main>
-      <H1>Top 5 today</H1>
-      <Posts />
-    </Main>
-  </Container>
+  <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <GlobalStyle />
+        <Head>
+          <title>Top5</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Main>
+          <H1>Top 5 today</H1>
+          <Posts />
+        </Main>
+      </Container>
+    </ThemeProvider>
+  </MuiThemeProvider>
 );
 
 export default Home;
