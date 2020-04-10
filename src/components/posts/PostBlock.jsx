@@ -13,12 +13,13 @@ const PostBlock = ({ error, isLoaded, posts }) => {
     <Paper elevation={6}>
       {posts.map((post) => (
         <PostItem
-          key={post.id}
-          title={post.title}
-          subtitle={post.subtitle}
-          number={post.number}
+          discussionUrl={post.discussionUrl}
           imageUrl={post.imageUrl}
-          link={post.link}
+          key={post.id}
+          url={post.url}
+          points={post.points}
+          subtitle={post.subtitle}
+          title={post.title}
         />
       ))}
     </Paper>
@@ -30,12 +31,13 @@ PostBlock.propTypes = {
   isLoaded: PropTypes.bool.isRequired,
   posts: PropTypes.arrayOf(
     PropTypes.shape({
+      discussionUrl: PropTypes.string,
       id: PropTypes.number,
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      number: PropTypes.number,
       imageUrl: PropTypes.string,
-      link: PropTypes.string,
+      points: PropTypes.number,
+      subtitle: PropTypes.string,
+      title: PropTypes.string,
+      url: PropTypes.string,
     })
   ),
 };

@@ -4,12 +4,13 @@ const bearer = process.env.PH_BEARER;
 
 const parsePosts = (posts) =>
   posts.slice(0, 5).map((post) => ({
+    discussionUrl: post.discussion_url,
     id: post.id,
-    title: post.name,
-    subtitle: post.tagline,
-    number: post.votes_count,
     imageUrl: post.thumbnail.image_url,
-    link: post.discussion_url,
+    points: post.votes_count,
+    subtitle: post.tagline,
+    title: post.name,
+    url: post.redirect_url,
   }));
 
 const getPhPosts = async () => {
