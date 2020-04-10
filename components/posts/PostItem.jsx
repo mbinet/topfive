@@ -7,19 +7,24 @@ const Container = styled.div`
   padding: 12px;
 `;
 
+const SBadge = styled(Badge)`
+  align-self: center;
+  margin-right: 24px;
+`;
+
 const PostItem = ({ imageUrl, link, number, subtitle, title }) => {
   const preventDefault = (event) => event.preventDefault();
 
   return (
     <>
       <Container>
-        <Badge
+        <SBadge
           badgeContent={number}
           color={number > 400 ? "error" : "primary"}
           max={9999}
         >
           <Avatar src={imageUrl} alt="thumbnail" />
-        </Badge>
+        </SBadge>
         <div>
           <Link href={link} onClick={preventDefault}>
             {title}
