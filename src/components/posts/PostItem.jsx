@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  padding: 12px;
+  padding: 16px;
 `;
 
 const SBadge = styled(Badge)`
@@ -12,35 +12,39 @@ const SBadge = styled(Badge)`
   margin-right: 24px;
 `;
 
-const PostItem = ({ imageUrl, link, number, subtitle, title }) => {
-  const preventDefault = (event) => event.preventDefault();
-
-  return (
-    <>
-      <Container>
+const PostItem = ({
+  discussionUrl,
+  imageUrl,
+  url,
+  points,
+  subtitle,
+  title,
+}) => (
+  <>
+    <Container>
+      <Link href={discussionUrl}>
         <SBadge
-          badgeContent={number}
-          color={number > 400 ? "error" : "primary"}
+          badgeContent={points}
+          color={points > 400 ? "error" : "primary"}
           max={9999}
         >
           <Avatar src={imageUrl} alt="thumbnail" />
         </SBadge>
-        <div>
-          <Link href={link} onClick={preventDefault}>
-            {title}
-          </Link>
-          <Typography variant="body2">{subtitle}</Typography>
-        </div>
-      </Container>
-      <Divider />
-    </>
-  );
-};
+      </Link>
+      <div>
+        <Link href={url}>{title}</Link>
+        <Typography variant="body2">{subtitle}</Typography>
+      </div>
+    </Container>
+    <Divider />
+  </>
+);
 
 PostItem.propTypes = {
+  discussionUrl: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+  points: PropTypes.number.isRequired,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
