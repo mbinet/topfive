@@ -4,7 +4,7 @@ import {
   createMuiTheme,
   ThemeProvider as MuiThemeProvider,
 } from "@material-ui/core/styles";
-import Posts from "../components/posts/Posts";
+import Posts from "../src/components/posts/Posts";
 
 const theme = createMuiTheme({
   typography: {

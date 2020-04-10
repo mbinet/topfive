@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import PostBlock from "./PostBlock";
-import getPhPosts from "./data";
+import getPhPosts from "../../services/productHuntData";
 
 const Container = styled.div`
   display: grid;
@@ -43,26 +43,6 @@ function Posts() {
 
   return (
     <Container>
-      <PostBlock
-        posts={phState.posts}
-        error={phState.error}
-        isLoaded={phState.isLoaded}
-      />
-      <PostBlock
-        posts={phState.posts}
-        error={phState.error}
-        isLoaded={phState.isLoaded}
-      />
-      <PostBlock
-        posts={phState.posts}
-        error={phState.error}
-        isLoaded={phState.isLoaded}
-      />
-      <PostBlock
-        posts={phState.posts}
-        error={phState.error}
-        isLoaded={phState.isLoaded}
-      />
       <PostBlock
         posts={phState.posts}
         error={phState.error}

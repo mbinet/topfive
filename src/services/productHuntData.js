@@ -1,6 +1,8 @@
+import getJson from "../utils/getJson";
+
 const bearer = process.env.PH_BEARER;
 
-const parsePhPosts = (posts) =>
+const parsePosts = (posts) =>
   posts.slice(0, 5).map((post) => ({
     id: post.id,
     title: post.name,
@@ -9,11 +11,6 @@ const parsePhPosts = (posts) =>
     imageUrl: post.thumbnail.image_url,
     link: post.discussion_url,
   }));
-
-const getJson = async (url, params) => {
-  const res = await (await fetch(url, params)).json();
-  return res;
-};
 
 const getPhPosts = async () => {
   const params = {
@@ -25,7 +22,7 @@ const getPhPosts = async () => {
   // For faster loading time in dev mode, use this data
   // const res = await getJson("./fakePhData.json", params);
   const res = await getJson("https://api.producthunt.com/v1/posts", params);
-  return parsePhPosts(res.posts);
+  return parsePosts(res.posts);
 };
 
 export default getPhPosts;
