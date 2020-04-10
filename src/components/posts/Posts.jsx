@@ -68,14 +68,16 @@ function Posts() {
   return (
     <Container>
       <PostBlock
-        posts={phState.posts}
         error={phState.error}
+        image={{ src: "/images/producthunt.png", alt: "product hunt logo" }}
         isLoaded={phState.isLoaded}
+        posts={phState.posts}
       />
       <PostBlock
-        posts={hnState.posts}
         error={hnState.error}
+        image={{ src: "/images/hackernews.png", alt: "hacker news logo" }}
         isLoaded={hnState.isLoaded}
+        posts={hnState.posts}
       />
     </Container>
   );
